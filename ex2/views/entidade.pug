@@ -1,0 +1,27 @@
+block content
+  .w3-container.w3-center
+    h2.w3-xlarge.w3-margin-bottom Entidade: #{name}
+    p.w3-large.w3-margin-top NIPC: #{nipc}
+    h3.w3-large.w3-margin-top Contratos desta Entidade
+  
+  .w3-responsive
+    table.w3-table.w3-striped.w3-bordered.w3-hoverable
+      thead
+        tr.w3-light-grey
+          th.w3-center ID
+          th.w3-center Objeto do Contrato
+          th.w3-center Data de Celebração do Contrato
+          th.w3-center Preço Contratual
+      tbody
+        each contrato in contratos
+          tr
+            td.w3-center
+              a(href=`/contratos/${contrato._id}` class="w3-text-blue")= contrato._id
+            td.w3-center= contrato.objectoContrato
+            td.w3-center= contrato.dataCelebracaoContrato
+            td.w3-center= contrato.precoContratual + " €"
+  
+  p.w3-large.w3-margin-top Montante Total dos Contratos: #{somatorio} €
+  
+  .w3-container.w3-center
+    a.w3-button.w3-teal.w3-margin-top(href="/") Voltar à página principal
